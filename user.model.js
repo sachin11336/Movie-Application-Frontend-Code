@@ -1,9 +1,10 @@
+const validator = require('validator');
 module.exports = (mongoose) => {
     const User = mongoose.model(
-      "user",
-      mongoose.Schema(
-        {
-        userid: Number,
+        "user",
+        mongoose.Schema(
+          {
+            userid: { type: Number, required: true },
         email: {
           type: String,
           unique: true,
@@ -40,9 +41,9 @@ module.exports = (mongoose) => {
             ],
           },
         ],
-      },
-      { timestamps: true }
-    )
-  );
-  return User;
-  };
+    },
+    { timestamps: true }
+  )
+);
+return User;
+};
